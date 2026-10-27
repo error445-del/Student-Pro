@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "august-journey-512018-h8",
+  "private_key_id": "765850337b216374ede9ccb4b2fb02d623431cf6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAW4bZ/cDfW/1P\njrgnx5I2Oo3irJ9YE1LQZMRlBNl5mTNlYj8Y3SE2sijIQgf/DfjwwAC0gwbuPpHP\naQitbmZgx4J+gbd9tiFhux7PGQmALJ0kQ5j1I2QOXuh4yinxSlXnPGEz9Xs+EuqO\nv2B6A+reKrFGxwCHeM6FDSoGsv1p6l3QZiZW7cdzEjD0moFpLKSfoPsS7oz3uBNX\nLBCRl7nann5JgwbQR6TfZb3AvcRxshTVmI/hfBjZ6yJdAkFqfP3pp8JwuqQeVypT\nUNHc4mv/gd+9HxjlhilDkn7fDfrsWBDapnc3dL07kIYAopNkhrFAUi8vtUtlRd/s\nge9UcSD5AgMBAAECggEAEDATqOg7MUDZUDbrRgO8SP6D/sG2ti+IHlwAkBzInXxY\nUC2ksDe5yhPTrUirShpXqxEJbieBr46J8Em/TnMWQApCL9nEQprPc91OsjCB9Wyr\nu8fJiUW1b6UqjLG8tl7iXE+fQYNk3/wxC5rM6G/IdfJjUVjBcWUoAhfxw7cP7vgB\nw93GZPrK1Mp5coimRvH/Oh5MNQJa6mnUKKrqxRUUc7Z0emK1yhS6GstObIlffxu8\nnWyVJrIMXAgP9nGuicWyeh0MGXbMFtfsUmSoujoICk7YETYSJ7m5ho/6LYWqiH+R\nBHlTc80Tk6NFbV6dWdyfVwGNoID3SJhOdkeymWyY1QKBgQD+KQGysA0/lVkCCNj7\nQD9qLmqBLRHYyMSXlFztBctqNN5v14jLpXNUkTzEOJ92d6qxhAeeTh70oXCf6FMj\nzCRmsihqaeaR13PsmVDVmylOvfToFepCh4cNaw5cWyj2njQJ8x0gTL8r3ClGEYmH\nCGUmj8wXTk9IK+yGjpVwwckI9QKBgQDBv/3M9R2N6HRk6jJNZj35TXWKmvRGguhc\n/5mWou6ldV11WNKMXCKBda0rzu/CN3lLwTB2gwz6KdCCLU/D0NwZ2prTBNlQYzl5\nzGHBtRF9sb7NM9TFwmnDR+eVStIiXTLGcPje7HLThKjqMhk2TGuRLpLOKApcaTZN\nQnvtg85FdQKBgGwhMhG9iMVmWqnc7cNnABPCj5lJfXBHaiw6+JX2gyY6O/BFOHO7\nfieaasnodR9Hph1D2KHnBpB5JptBki2Gqm3umfc7+tZNXYppZ9SY4KgZdNpQiIup\ncTGqPD/aoMDbabRZ9ChLvoGAdybSSzphvfb78o5vyJch6M0OWFHSgB8JAoGAFn6s\n//Phh41anjDWwEfDoENPB1WwUNN4GPwQH/4wyQMUY8B5SZSU6QT5oyF2ks0QByyZ\n7NiQVCcwrzyFi02fkFziJufkN0Id9Tc2jl/wdPCDH54J8R/+WY7qo1m5hgXeFE4f\nhvpa5pX7ap2Acd5zirqmjsr1UP9iL5wteUkZVNUCgYBzzWdfOMTjj1nEmsYmz8MO\nJOZQG1tEWo5zlDxClNoyb99wVXtSWwwFDfwEs+zEoS1RD7/HAuL86oD+MdykDVBk\nmMerLZk8ZqfJpmYF6e5k6mtd5ZJzdkVmWFmndeGh0kYjJwKOh2K7eeZ6TURk+qO0\nPx1gvlSb6EWEsyza1pT6Ew==\n-----END PRIVATE KEY-----\n",
+  "client_email": "studentpro-sync@august-journey-512018-h8.iam.gserviceaccount.com",
+  "client_id": "103480351124388902792",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/studentpro-sync%40august-journey-512018-h8.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
