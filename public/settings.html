@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | StudentPro</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">🎓 <span>StudentPro</span></div>
+      <small>Academic Record System</small>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="/students.html" class="nav-item"><span class="nav-icon">👥</span> Students</a>
+      <a href="/semester-results.html" class="nav-item"><span class="nav-icon">📊</span> Semester Results</a>
+      <a href="/subject-marks.html" class="nav-item"><span class="nav-icon">📝</span> Subject Marks</a>
+      <a href="/academic-gaps.html" class="nav-item"><span class="nav-icon">⚠️</span> Academic Gaps</a>
+      <a href="/seminars.html" class="nav-item"><span class="nav-icon">🏆</span> Seminars &amp; Activities</a>
+      <a href="/reports.html" class="nav-item"><span class="nav-icon">📋</span> Reports</a>
+      <a href="/settings.html" class="nav-item"><span class="nav-icon">⚙️</span> Settings</a>
+      <a href="#" class="nav-item" id="logout-btn"><span class="nav-icon">🚪</span> Logout</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle-btn" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div>
+          <h1 class="topbar-title">Settings</h1>
+          <p class="topbar-subtitle">Manage your account security</p>
+        </div>
+      </div>
+    </header>
+    <div class="content-body">
+      <section class="settings-shell">
+        <div class="settings-intro">
+          <div class="settings-icon" aria-hidden="true">🔐</div>
+          <div>
+            <h2>Password &amp; security</h2>
+            <p>Choose a strong password to keep your StudentPro account secure.</p>
+          </div>
+        </div>
+        <form id="change-password-form" class="settings-form">
+          <div class="form-group">
+            <label class="form-label" for="current-pass">Current password</label>
+            <input class="form-control" type="password" id="current-pass" placeholder="Enter your current password" autocomplete="current-password" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-pass">New password</label>
+            <input class="form-control" type="password" id="new-pass" placeholder="At least 6 characters" autocomplete="new-password" required minlength="6">
+            <small class="form-hint">Use at least 6 characters.</small>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="confirm-pass">Confirm new password</label>
+            <input class="form-control" type="password" id="confirm-pass" placeholder="Re-enter your new password" autocomplete="new-password" required minlength="6">
+          </div>
+          <div class="settings-actions">
+            <button type="submit" class="btn btn-primary">Update password</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await checkAuth();
+
+  document.getElementById('change-password-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const newPass = document.getElementById('new-pass').value;
+    const confirmPass = document.getElementById('confirm-pass').value;
+    if (newPass !== confirmPass) {
+      showToast('New passwords do not match', 'error');
+      return;
+    }
+    try {
+      const res = await fetch('/api/change-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          currentPassword: document.getElementById('current-pass').value,
+          newPassword: newPass
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('Password updated successfully!');
+        document.getElementById('change-password-form').reset();
+      } else {
+        showToast(data.error || 'Failed to update password', 'error');
+      }
+    } catch {
+      showToast('Server error', 'error');
+    }
+  });
+});
+</script>
+</body>
+</html>

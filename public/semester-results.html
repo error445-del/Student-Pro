@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester Results | StudentPro</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">🎓 <span>StudentPro</span></div>
+      <small>Academic Record System</small>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="/students.html" class="nav-item"><span class="nav-icon">👥</span> Students</a>
+      <a href="/semester-results.html" class="nav-item"><span class="nav-icon">📊</span> Semester Results</a>
+      <a href="/subject-marks.html" class="nav-item"><span class="nav-icon">📝</span> Subject Marks</a>
+      <a href="/academic-gaps.html" class="nav-item"><span class="nav-icon">⚠️</span> Academic Gaps</a>
+      <a href="/seminars.html" class="nav-item"><span class="nav-icon">🏆</span> Seminars &amp; Activities</a>
+      <a href="/reports.html" class="nav-item"><span class="nav-icon">📋</span> Reports</a>
+      <a href="/settings.html" class="nav-item"><span class="nav-icon">⚙️</span> Settings</a>
+      <a href="#" class="nav-item" id="logout-btn"><span class="nav-icon">🚪</span> Logout</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="top-bar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <div class="page-title">
+        <h1>Semester Results</h1>
+        <p>View and manage student semester-wise results</p>
+      </div>
+    </header>
+    <div class="content-body">
+      <div class="page-card">
+        <div class="selector-row">
+          <div class="form-group" style="flex:1;max-width:350px">
+            <label>Select Student</label>
+            <select id="student-select">
+              <option value="">-- Select a student --</option>
+            </select>
+          </div>
+          <button class="btn-primary" id="add-result-btn" style="display:none">➕ Add Result</button>
+        </div>
+      </div>
+
+      <div id="results-section" style="display:none">
+        <div class="chart-card">
+          <div class="card-header"><h3>📈 SGPA Trend</h3></div>
+          <div class="chart-container" style="height:200px">
+            <canvas id="sem-sgpa-chart"></canvas>
+          </div>
+        </div>
+        <div class="page-card" style="margin-top:1rem">
+          <div id="results-by-semester"></div>
+        </div>
+      </div>
+
+      <div id="no-student-msg" class="empty-state">
+        <div class="empty-icon">📊</div>
+        <p>Select a student above to view their semester results.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Add Result Modal -->
+<div class="modal-overlay" id="result-modal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Add Semester Result</h3>
+      <button class="modal-close" onclick="closeModal('result-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Semester *</label>
+          <select id="r-semester" required>
+            <option value="">Select</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Subject Code *</label>
+          <input type="text" id="r-subject-code" placeholder="e.g. EC101" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Subject Name *</label>
+        <input type="text" id="r-subject-name" placeholder="Subject name" required>
+      </div>
+        <div class="form-group">
+          <label>Component *</label>
+          <select id="r-component-type" required><option value="Theory">Theory</option><option value="Lab">Lab</option></select>
+        </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Marks (0–100) *</label>
+          <input type="number" id="r-marks" min="0" max="100" placeholder="e.g. 82" required oninput="updateGradePreview()">
+        </div>
+        <div class="form-group">
+          <label>Grade (auto)</label>
+          <input type="text" id="r-grade" placeholder="Auto computed" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal('result-modal')">Cancel</button>
+      <button class="btn-primary" id="save-result-btn">Save Result</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/semester-results.js"></script>
+</body>
+</html>

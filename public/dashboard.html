@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | StudentPro</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">🎓 <span>StudentPro</span></div>
+      <small>Academic Record System</small>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="/students.html" class="nav-item"><span class="nav-icon">👥</span> Students</a>
+      <a href="/semester-results.html" class="nav-item"><span class="nav-icon">📊</span> Semester Results</a>
+      <a href="/subject-marks.html" class="nav-item"><span class="nav-icon">📝</span> Subject Marks</a>
+      <a href="/academic-gaps.html" class="nav-item"><span class="nav-icon">⚠️</span> Academic Gaps</a>
+      <a href="/seminars.html" class="nav-item"><span class="nav-icon">🏆</span> Seminars &amp; Activities</a>
+      <a href="/reports.html" class="nav-item"><span class="nav-icon">📋</span> Reports</a>
+      <a href="/settings.html" class="nav-item"><span class="nav-icon">⚙️</span> Settings</a>
+      <a href="#" class="nav-item" id="logout-btn"><span class="nav-icon">🚪</span> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-bar">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <div class="page-title">
+        <h1>Dashboard</h1>
+        <p>Overview of student records and academic activities</p>
+      </div>
+    </header>
+
+    <div class="content-body">
+      <!-- Stat Cards -->
+      <div class="stats-grid">
+        <div class="stat-card stat-blue">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-students">—</div>
+            <div class="stat-label">Total Students</div>
+            <a href="/students.html" class="stat-link">View all students →</a>
+          </div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-icon">📚</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-semesters">—</div>
+            <div class="stat-label">Semesters Recorded</div>
+            <a href="/semester-results.html" class="stat-link">View records →</a>
+          </div>
+        </div>
+        <div class="stat-card stat-orange">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-seminars">—</div>
+            <div class="stat-label">Seminars</div>
+            <a href="/seminars.html" class="stat-link">View seminar records →</a>
+          </div>
+        </div>
+        <div class="stat-card stat-purple">
+          <div class="stat-icon">🏅</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-activities">—</div>
+            <div class="stat-label">Extracurricular Activities</div>
+            <a href="/seminars.html" class="stat-link">View activity records →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="card-header">
+            <h3>📊 Students per Department</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="deptChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="card-header">
+            <h3>📈 Semester Performance (Average SGPA)</h3>
+          </div>
+          <div class="chart-container">
+            <canvas id="sgpaChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="bottom-row">
+        <!-- Recent Students -->
+        <div class="table-card">
+          <div class="card-header">
+            <h3>👥 Recent Student Records</h3>
+            <a href="/students.html" class="view-all-link">View All</a>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Roll No.</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Current Semester</th>
+                  <th>Last SGPA</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recent-students-tbody">
+                <tr><td colspan="7" class="loading-cell">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions-card">
+          <div class="card-header">
+            <h3>⚡ Quick Actions</h3>
+          </div>
+          <div class="quick-actions-list">
+            <a href="/students.html" class="quick-action-btn qa-blue">
+              <span>➕</span> Add New Student
+              <span class="qa-arrow">›</span>
+            </a>
+            <a href="/semester-results.html" class="quick-action-btn qa-green">
+              <span>📚</span> Manage Academic Details
+              <span class="qa-arrow">›</span>
+            </a>
+            <a href="/semester-results.html" class="quick-action-btn qa-orange">
+              <span>📊</span> View Semester Results
+              <span class="qa-arrow">›</span>
+            </a>
+            <a href="/seminars.html" class="quick-action-btn qa-red">
+              <span>🏆</span> Record Seminar
+              <span class="qa-arrow">›</span>
+            </a>
+            <a href="/seminars.html" class="quick-action-btn qa-purple">
+              <span>🏅</span> Add Activity Record
+              <span class="qa-arrow">›</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
